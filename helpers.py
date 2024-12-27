@@ -1,7 +1,8 @@
+import allure
 import requests
 import random
 import string
-from test_data import CREATE_COURIER, LOGIN_COURIER
+from data import CREATE_COURIER, LOGIN_COURIER
 
 
 def generate_random_string(length):
@@ -9,7 +10,7 @@ def generate_random_string(length):
     random_string = ''.join(random.choice(letters) for _ in range(length))
     return random_string
 
-
+@allure.step('Используем данные существующего курьера для входа')
 def login_and_get_courier_id(payload):
     login_response = requests.post(LOGIN_COURIER, json=payload)
     assert login_response.status_code == 200
@@ -17,12 +18,12 @@ def login_and_get_courier_id(payload):
     assert courier_id is not None
     return courier_id
 
-
+@allure.step('Удаляем данные о курьере')
 def delete_courier(courier_id):
     delete_response = requests.delete(f"{CREATE_COURIER}/{courier_id}")
     assert delete_response.status_code == 200
 
-
+@allure.step('Регистрируем нового курьера')
 def register_new_courier_and_return_login_password():
     def generate_random_string_for_login(length):
         letters = string.ascii_lowercase

@@ -1,6 +1,6 @@
 import allure
 import requests
-from test_data import GET_ORDERS
+from data import GET_ORDERS
 
 class TestGetOrders:
     @allure.title('Проверка успешного получения списка заказов')

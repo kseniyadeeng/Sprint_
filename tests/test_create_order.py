@@ -1,7 +1,7 @@
 import allure
 import pytest
 import requests
-from test_data import CREATE_ORDER, order_data_black, order_data_grey, order_data_multicolor, order_data_no_color
+from data import CREATE_ORDER, order_data_black, order_data_grey, order_data_multicolor, order_data_no_color
 
 
 class TestCreateOrder:

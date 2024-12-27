@@ -2,7 +2,7 @@ import allure
 import pytest
 import requests
 from helpers import register_new_courier_and_return_login_password, generate_random_string, delete_courier
-from test_data import LOGIN_COURIER, login_valid, password_valid
+from data import LOGIN_COURIER, login_valid, password_valid
 
 class TestLoginCourier:
     @allure.title('Проверка успешной авторизации курьера при заполненных обязательных полях')

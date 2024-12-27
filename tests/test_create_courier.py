@@ -2,7 +2,7 @@ import allure
 import pytest
 import requests
 from helpers import generate_random_string, login_and_get_courier_id, delete_courier
-from test_data import CREATE_COURIER, login_valid
+from data import CREATE_COURIER, login_valid
 
 
 class TestCreateCourier:
